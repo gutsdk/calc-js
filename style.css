@@ -16,6 +16,59 @@ body {
     width: 300px;
 }
 
+.header {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
+    color: white;
+    gap: 15px;
+}
+
+.header h1 {
+    margin: 0;
+    font-size: 24px;
+    text-align: center;
+}
+
+.controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.mode-switcher {
+    display: flex;
+    gap: 5px;
+}
+
+.mode-btn {
+    padding: 5px 10px;
+    font-size: 12px;
+    background-color: #555;
+    border: none;
+    border-radius: 3px;
+    color: white;
+    cursor: pointer;
+}
+
+.mode-btn.active {
+    background-color: #ff9500;
+}
+
+.help-btn {
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background-color: #ff9500;
+    color: white;
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 .display {
     background-color: #eee;
     padding: 15px;
@@ -31,6 +84,10 @@ body {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 10px;
+}
+
+.hidden {
+    display: none;
 }
 
 button {
@@ -65,9 +122,10 @@ button:hover {
     background-color: #c5c5c5;
 }
 
-.equals {
+.basic-mode .equals {
     background-color: #ff9500;
     grid-column: span 4;
+    margin-top: 5px;
 }
 
 .number {
@@ -89,4 +147,142 @@ button:hover {
 
 .backspace:hover {
     background-color: #c5c5c5;
+}
+
+.advanced-mode {
+    grid-template-columns: repeat(5, 1fr);
+    gap: 8px;
+}
+
+.advanced-mode .equals {
+    background-color: #ff9500;
+    grid-column: span 1;
+    grid-row: span 2;
+}
+
+.function {
+    background-color: #444;
+    font-size: 14px;
+}
+
+.constant {
+    background-color: #444;    font-size: 14px;
+}
+
+.graph-mode {
+    margin-top: 15px;
+}
+
+.graph-controls {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+#functionInput {
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #555;
+    background-color: #444;
+    color: white;
+    font-size: 14px;
+}
+
+.graph-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+#plotBtn, #clearPlotBtn {
+  flex: 1;
+  padding: 10px;
+  font-size: 14px;
+}
+
+#plotBtn {
+  background-color: #ff9500;
+}
+
+#clearPlotBtn {
+  background-color: #a5a5a5;
+  color: black;
+}
+
+.graph-container {
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 0px;
+    margin-top: 10px;
+}
+
+#graphCanvas {
+    display: block;
+    width: 100%;
+    height: 300px;
+}
+
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal:not(.hidden) {
+    display: flex;
+}
+
+.modal-content {
+    background-color: #333;
+    padding: 20px;
+    border-radius: 10px;
+    width: 80%;
+    max-width: 500px;
+    color: white;
+    position: relative;
+}
+
+.close {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.tab {
+    display: flex;
+    margin-bottom: 15px;
+    border-bottom: 1px solid #555;
+}
+
+.tablinks {
+    padding: 8px 16px;
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+    border-bottom: 2px solid transparent;
+}
+
+.tablinks.active {
+    border-bottom: 2px solid #ff9500;
+    color: #ff9500;
+}
+
+.tabcontent {
+    display: none;
+    padding: 10px 0;
+}
+
+.tabcontent ul {
+    padding-left: 20px;
 }

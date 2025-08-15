@@ -2,14 +2,28 @@
 <html lang="ru">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-wdth, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Калькулятор</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <div class="calculator">
+    <div class="header">
+      <h1>Калькулятор</h1>
+      <div class="controls">
+        <div class="mode-switcher">
+          <button class="mode-btn active" data-mode="basic">Простой</button>
+          <button class="mode-btn" data-mode="advanced">Расширенный</button>
+          <button class="mode-btn" data-mode="graph">Графики</button>
+        </div>
+        <button class="help-btn" id="helpBtn">?</button>
+      </div>
+    </div>
+
     <div class="display" id="display">0</div>
-    <div class="buttons">
+
+    <!-- Блок кнопок (простой режим)-->
+    <div class="buttons basic-mode">
       <button class="clear">C</button>
       <button class="bracket">(</button>
       <button class="bracket">)</button>
@@ -37,8 +51,103 @@
       
       <button class="equals">=</button>
     </div>
+
+    <!-- Блок кнопок (расширенный режим)-->
+    <div class="buttons advanced-mode hidden">
+      <button class="clear">C</button>
+      <button class="bracket">(</button>
+      <button class="bracket">)</button>
+      <button class="operator">%</button>
+      <button class="backspace">⌫</button>
+
+      <button class="number">7</button>
+      <button class="number">8</button>
+      <button class="number">9</button>
+      <button class="operator">x</button>
+      <button class="operator">/</button>
+
+      <button class="number">4</button>
+      <button class="number">5</button>
+      <button class="number">6</button>
+      <button class="operator">+</button>
+      <button class="operator">-</button>
+
+      <button class="number">1</button>
+      <button class="number">2</button>
+      <button class="number">3</button>
+      <button class="operator">^</button>
+      <button class="operator">√</button>
+
+      <button class="number">0</button>
+      <button class="decimal">.</button>
+      <button class="constant">e</button>
+      <button class="constant">π</button>
+      <button class="equals">=</button>
+      
+      <button class="function">sin</button>
+      <button class="function">cos</button>
+      <button class="function">tan</button>
+      <button class="function">log</button>
+
+      <button class="function">ln</button>
+      
+    </div>
+
+    <!-- Блок построения графиков-->
+    <div class="graph-mode hidden" id="graphMode">
+      <div class="graph-controls">
+        <input type="text" id="functionInput" placeholder="Введите функцию, например: 2*x">
+        <div class="graph-buttons">
+          <button id="plotBtn">Построить график</button>
+          <button id="clearPlotBtn">Очистить</button>
+        </div>
+      </div>
+      <div class="graph-container">
+        <canvas id="graphCanvas"></canvas>
+      </div>
+    </div>
   </div>
-  
+
+  <!-- Справка-->
+  <div class="modal hidden" id="helpModal">
+    <div class="modal-content">
+      <span class="close" id="closeModal">&times;</span>
+      <h2>Справка по калькулятору</h2>
+      <div class="tab">
+        <button class="tablinks active" data-tab="basic-help">Простой режим</button>
+        <button class="tablinks" data-tab="advanced-help">Расширенный режим</button>
+        <button class="tablinks" data-tab="graph-help">Построение графиков</button>
+      </div>
+
+      <div id="basic-help" class="tabcontent" style="display: block;">
+        <h3>Простой режим</h3>
+        <p>Основные операции:</p>
+        <ul>
+          <li>Сложение (+)</li>
+          <!-- todo: расписать операции-->
+        </ul>
+      </div>
+
+      <div id="advanced-help" class="tabcontent">
+        <h3>Расширенный режим</h3>
+        <p>Дополнительные функции:</p>
+        <ul>
+          <li>Сложение (+)</li>
+          <!-- todo: расписать операции-->
+        </ul>
+      </div>
+
+      <div id="graph-help" class="tabcontent">
+        <h3>Построение графиков</h3>
+        <p>Введите функцию от переменной x, например:</p>
+        <ul>
+          <li>x^2</li>
+          <!-- todo: расписать функции-->
+        </ul>
+        <p>Нажмите "Построить график" для отображения функции</p>
+      </div>
+    </div>
+  </div>
   <script src="index.js"></script>
 </body>
 </html>
